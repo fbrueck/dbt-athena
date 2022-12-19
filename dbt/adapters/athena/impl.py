@@ -24,6 +24,10 @@ logger = AdapterLogger("Athena")
 
 boto3_client_lock = Lock()
 
+import boto3
+boto3.set_stream_logger('boto3.resources', logging.INFO)
+
+
 
 class AthenaAdapter(SQLAdapter):
     ConnectionManager = AthenaConnectionManager
